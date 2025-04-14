@@ -1,4 +1,4 @@
-import prisms from "@/app/libs/prismadb"
+import prisma from "@/app/libs/prismadb"
 import ConversationId from "../conversations/[conversationId]/page"
 
 const getMessages = async (
@@ -7,7 +7,7 @@ const getMessages = async (
     try{
         const messages = await prisma?.message.findMany({
             where: {
-                conversastionId: ConversationId
+                conversationId: ConversationId
             },
             include: {
                 sender: true,
@@ -18,8 +18,11 @@ const getMessages = async (
             }
         })
         return messages
-    }catch(error: any){
-        return []
+    }catch (error: unknown) {
+        if (error instanceof Error) {
+            console.log(error.message); 
+        }
+        return [] 
     }
 }
 

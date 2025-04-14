@@ -21,9 +21,13 @@ const getConversationById = async (
             }
         })
         return conversation
-    }   catch(error: any){
-        return null
-    }
+    }   catch (error: unknown) {
+            if (error instanceof Error) {
+                console.log(error.message);
+            }
+            return null;
+        }
+
 }
 
 export default getConversationById

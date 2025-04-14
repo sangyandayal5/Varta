@@ -22,8 +22,11 @@ const getUsers = async() => {
             }
         })
         return users
-    }catch(error: any){
-        return [];
+    }catch (error: unknown) {
+        if (error instanceof Error) {
+            console.log(error.message); 
+        }
+        return [] 
     }
 
 }

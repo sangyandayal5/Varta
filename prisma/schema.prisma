@@ -79,8 +79,8 @@ model Message {
   seenIds String[] @db.ObjectId
   seen User[] @relation("Seen", fields: [seenIds], references: [id])
 
-  conversastionId String @db.ObjectId
-  conversation Conversation @relation(fields: [conversastionId], references: [id], onDelete:Cascade)
+  conversationId String @db.ObjectId
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete:Cascade)
 
   senderId String @db.ObjectId
   sender User @relation(fields: [senderId], references: [id], onDelete: Cascade)
