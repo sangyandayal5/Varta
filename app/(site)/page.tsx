@@ -22,7 +22,7 @@ export default function Home() {
             height="48"
             width="48"
             className="mx-auto w-auto"
-            src="/images/logo.jpg"
+            src="/images/logo.png"
             />
             <h2
                 className="

@@ -6,16 +6,17 @@ const getMessages = async (
 ) => {
     try{
         const messages = await prisma?.message.findMany({
-            where: {
-                conversationId: ConversationId
-            },
-            include: {
-                sender: true,
-                seen: true
-            },
-            orderBy: {
-                createdAt: 'asc'
-            }
+          where: {
+            // @ts-ignore
+            conversationId: ConversationId,
+          },
+          include: {
+            sender: true,
+            seen: true,
+          },
+          orderBy: {
+            createdAt: 'asc',
+          },
         })
         return messages
     }catch (error: unknown) {
